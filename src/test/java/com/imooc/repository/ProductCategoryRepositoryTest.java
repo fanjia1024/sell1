@@ -26,7 +26,7 @@ public class ProductCategoryRepositoryTest {
     @Test
 //    @Transactional
     public void saveTest() {
-        ProductCategory productCategory = new ProductCategory("大家最爱", 3);
+        ProductCategory productCategory = new ProductCategory("女生最爱", 2);
         ProductCategory result = repository.save(productCategory);
         Assert.assertNotNull(result);
 //        Assert.assertNotEquals(null, result);
@@ -37,7 +37,7 @@ public class ProductCategoryRepositoryTest {
         List<Integer> list = Arrays.asList(2,3,4);
 
         List<ProductCategory> result = repository.findByCategoryTypeIn(list);
-        log.info("执行成功！！");
+//        log.info("执行成功！！");
         Assert.assertNotEquals(0, result.size());
     }
 
