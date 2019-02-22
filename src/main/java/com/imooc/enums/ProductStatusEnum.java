@@ -2,11 +2,14 @@ package com.imooc.enums;
 
 import lombok.Getter;
 
+/**
+ * 商品状态
+ * 枚举
+ */
 @Getter
-public enum ProductStatusEnum {
+public enum ProductStatusEnum implements CodeEnum {
     UP(0, "在架"),
-    DOWN(1, "下架")
-    ;
+    DOWN(1, "下架");
 
     private Integer code;
 
@@ -16,4 +19,6 @@ public enum ProductStatusEnum {
         this.code = code;
         this.message = message;
     }
+
+
 }

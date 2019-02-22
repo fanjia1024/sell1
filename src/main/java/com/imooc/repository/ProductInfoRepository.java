@@ -5,7 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ProductInfoRepository extends JpaRepository<ProductInfo,String> {
-    List<ProductInfo> findByProductStatus(Integer productStatus);
+/**
+ * 商品信息的dao
+ */
+public interface ProductInfoRepository extends JpaRepository<ProductInfo, String> {
 
+    List<ProductInfo> findByProductStatus(Integer productStatus);
 }

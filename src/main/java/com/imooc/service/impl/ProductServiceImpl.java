@@ -10,18 +10,23 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
+/**
+ * productservice实现类
+ */
 @Service
+//@CacheConfig(cacheNames = "product")
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductInfoRepository repository;
 
+
     @Override
+//    @Cacheable(key = "123")
     public ProductInfo findOne(String productId) {
-        Optional<ProductInfo> obj = repository.findById(productId);
-        ProductInfo result=obj.get();
-        return result;
+
+        return repository.findById(productId).get();
     }
 
     @Override
@@ -31,11 +36,16 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Page<ProductInfo> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
+        Page<ProductInfo> productInfoPage = repository.findAll(pageable);
+
+        return productInfoPage;
     }
 
     @Override
+//    @CachePut(key = "123")
     public ProductInfo save(ProductInfo productInfo) {
         return repository.save(productInfo);
     }
+
+
 }
