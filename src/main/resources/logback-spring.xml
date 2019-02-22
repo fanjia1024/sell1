@@ -38,7 +38,7 @@
                 %msg%n
             </pattern>
         </encoder>
-        <!--滚动策略-->
+        <!--错误日志滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--路径-->
             <fileNamePattern>/Users/fanjia/sell/error.%d.log</fileNamePattern>
