@@ -14,3 +14,6 @@ spring:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
+wechat:
+  mpAppId: wx67ae3b18a7510021
+  mpAppSecret: 6eb34fce597d236793c3b9d3febe06c2

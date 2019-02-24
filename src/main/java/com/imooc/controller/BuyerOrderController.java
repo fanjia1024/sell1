@@ -83,7 +83,7 @@ public class BuyerOrderController {
     @PostMapping("/cancle")
     public ResultVO cancle(@RequestParam("openid") String openid,
                            @RequestParam("orderId") String orderId){
-        //TODO 不安全做法
+
        OrderDTO orderDTO= buyerService.cancelOrder(openid,orderId);
        return ResultVOUtil.success();
     }
