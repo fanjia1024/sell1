@@ -17,3 +17,7 @@ spring:
 wechat:
   mpAppId: wx67ae3b18a7510021
   mpAppSecret: 6eb34fce597d236793c3b9d3febe06c2
+  mchId: 1483469312
+  mchKey: 06C56A89949D617xxxxxxxxxxx
+  keyPath: /var/weixin_cert/h5.p12
+  notifyUrl: http://sellfanjia.natapp1.cc/sell/pay/notify
