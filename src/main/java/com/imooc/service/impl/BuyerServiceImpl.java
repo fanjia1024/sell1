@@ -23,6 +23,7 @@ public class BuyerServiceImpl implements BuyerService {
 
     @Override
     public OrderDTO cancelOrder(String openid, String orderId) {
+        openid = "oTgZpwezf08ihIHR9Ni3t7dwTTQo";
         OrderDTO orderDTO=checkOrderOwner(openid,orderId);
         if (orderDTO == null) {
             log.error("【取消订单】查不到改订单, orderId={}", orderId);

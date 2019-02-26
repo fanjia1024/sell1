@@ -80,7 +80,7 @@ public class BuyerOrderController {
 
 
     //取消订单
-    @PostMapping("/cancle")
+    @PostMapping("/cancel")
     public ResultVO cancle(@RequestParam("openid") String openid,
                            @RequestParam("orderId") String orderId){
 
