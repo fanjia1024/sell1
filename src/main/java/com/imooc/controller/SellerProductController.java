@@ -137,6 +137,7 @@ public class SellerProductController {
             } else {
                 form.setProductId(KeyUtil.genUniqueKey());
             }
+            log.info("【表单中的图片地址】form={}", form.getProductIcon());
             BeanUtils.copyProperties(form, productInfo);
             productService.save(productInfo);
         } catch (SellException e) {
