@@ -22,3 +22,8 @@ wechat:
   mchKey: C5245D70627C1F8E9964D494B0735025
   keyPath: /Users/fanjia/Downloads/coding-117/doc/h5.p12
   notifyUrl: http://sellfanjia.natapp1.cc/sell/pay/notify
+upyun:
+  bucketName: XXX
+  userName: xxx
+  password: xxxx
+  imageHost: http://xxx.com/

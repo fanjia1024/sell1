@@ -46,6 +46,6 @@ public class WechatController {
         log.info("【微信授权的返回网页】 returnUrl={}",returnUrl);
         String openId = wxMpOAuth2AccessToken.getOpenId();
 
-        return "redirect:" + returnUrl + "?openid=" + openId;
+        return "redirect:" + returnUrl + "?openid=oTgZpwezf08ihIHR9Ni3t7dwTTQo" ;
     }
 }
