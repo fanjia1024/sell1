@@ -18,6 +18,7 @@ public class BuyerServiceImpl implements BuyerService {
 
     @Override
     public OrderDTO findOrderOne(String openid, String orderId) {
+        openid = "oTgZpwezf08ihIHR9Ni3t7dwTTQo";
         return checkOrderOwner(openid,orderId);
     }
 
@@ -30,7 +31,7 @@ public class BuyerServiceImpl implements BuyerService {
             throw new SellException(ResultEnum.ORDER_NOT_EXIST);
         }
 
-        return orderService.cancle(orderDTO);
+        return orderService.cancel(orderDTO);
     }
     private OrderDTO checkOrderOwner(String openid, String orderId) {
         OrderDTO orderDTO = orderService.findOne(orderId);

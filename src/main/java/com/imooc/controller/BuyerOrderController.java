@@ -39,6 +39,7 @@ public class BuyerOrderController {
             log.error("【创建订单】 参数不正确， orderForm={}",orderForm);
             throw new SellException(ResultEnum.PARAM_ERROR.getCode(),bindingResult.getFieldError().getDefaultMessage());
         }
+        orderForm.setOpenid("oTgZpwezf08ihIHR9Ni3t7dwTTQo");
         OrderDTO orderDTO= OrderForm2OrderDTOConverter.convert(orderForm);
         if (CollectionUtils.isEmpty(orderDTO.getOrderDetailList())) {
             log.error("【创建订单】购物车不能为空");

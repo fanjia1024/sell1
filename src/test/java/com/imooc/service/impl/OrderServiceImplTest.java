@@ -71,7 +71,7 @@ public class OrderServiceImplTest {
     @Test
     public void cancle() {
         OrderDTO orderDTO = orderService.findOne(ORDER_ID);
-        OrderDTO result = orderService.cancle(orderDTO);
+        OrderDTO result = orderService.cancel(orderDTO);
         Assert.assertEquals(OrderStatusEnum.CANCEL.getCode(), result.getOrderStatus());
     }
 
@@ -88,5 +88,13 @@ public class OrderServiceImplTest {
         OrderDTO orderDTO = orderService.findOne(ORDER_ID);
         OrderDTO result = orderService.paid(orderDTO);
         Assert.assertTrue(orderDTO.getPayStatus().equals(PayStatusEnum.SUCCESS.getCode()));
+    }
+
+    @Test
+    public void findListAll() {
+        PageRequest request = new PageRequest(0, 2);
+        Page<OrderDTO> result = orderService.findList(request);
+        log.info(result.getContent().toString());
+        Assert.assertTrue(result.getTotalElements() > 0);
     }
 }

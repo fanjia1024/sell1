@@ -23,7 +23,7 @@ public interface OrderService {
     /**
      * 取消订单
      */
-    OrderDTO cancle(OrderDTO orderDTO);
+    OrderDTO cancel(OrderDTO orderDTO);
 
     /**
      * 完结订单
@@ -34,4 +34,9 @@ public interface OrderService {
      * 支付订单
      */
     OrderDTO paid(OrderDTO orderDTO);
+
+    /**
+     * 查询订单列表
+     */
+    Page<OrderDTO> findList(Pageable pageable);
 }
