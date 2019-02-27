@@ -24,7 +24,7 @@
         <!--滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--路径-->
-            <fileNamePattern>/Users/fanjia/sell/info.%d.log</fileNamePattern>
+            <fileNamePattern>E:/sell/info.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
 
@@ -41,7 +41,7 @@
         <!--错误日志滚动策略-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!--路径-->
-            <fileNamePattern>/Users/fanjia/sell/error.%d.log</fileNamePattern>
+            <fileNamePattern>E:/sell/error.%d.log</fileNamePattern>
         </rollingPolicy>
     </appender>
     <logger name="org.hibernate.SQL" additivity="false" >

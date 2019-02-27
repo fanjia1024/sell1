@@ -14,8 +14,8 @@ import java.io.Serializable;
 //@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResultVO<T> implements Serializable {
 
-    private static final long serialVersionUID = 3068837394742385883L;
 
+    private static final long serialVersionUID = 3068837394742385883L;
     /**
      * 错误码.
      */
