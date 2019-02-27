@@ -14,6 +14,9 @@ spring:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
+  redis:
+    host: 192.168.43.118
+    port: 6379
 wechat:
   #  mpAppId: wx67ae3b18a7510021
   mpAppSecret: 6eb34fce597d236793c3b9d3febe06c2
@@ -22,6 +25,12 @@ wechat:
   mchKey: C5245D70627C1F8E9964D494B0735025
   keyPath: /Users/fanjia/Downloads/coding-117/doc/h5.p12
   notifyUrl: http://sellfanjia.natapp1.cc/sell/pay/notify
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+projectUrl:
+  wechatMpAuthorize: http://sellfanjia.natapp1.cc
+  wechatOpenAuthorize: http://sellfanjia.natapp1.cc
+  sell: http://sellfanjia.natapp1.cc
 upyun:
   bucketName: XXX
   userName: xxx
