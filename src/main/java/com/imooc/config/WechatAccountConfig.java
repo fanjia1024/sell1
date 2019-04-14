@@ -2,6 +2,7 @@ package com.imooc.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -12,12 +13,14 @@ import java.util.Map;
  */
 @Data
 @Component
+@Primary
 @ConfigurationProperties(prefix = "wechat")
 public class WechatAccountConfig {
 
     /**
      * 公众平台id
      */
+
     private String mpAppId;
 
     /**
@@ -35,30 +38,30 @@ public class WechatAccountConfig {
      */
     private String openAppSecret;
 
-    /**
-     * 商户号
-     */
-    private String mchId;
-
-    /**
-     * 商户密钥
-     */
-    private String mchKey;
-
-    /**
-     * 商户证书路径
-     */
-    private String keyPath;
-
-    /**
-     * 微信支付异步通知地址
-     */
-    private String notifyUrl;
-
-    /**
-     * 微信模版id
-     */
-    private Map<String, String> templateId;
+//    /**
+//     * 商户号
+//     */
+//    private String mchId;
+//
+//    /**
+//     * 商户密钥
+//     */
+//    private String mchKey;
+//
+//    /**
+//     * 商户证书路径
+//     */
+//    private String keyPath;
+//
+//    /**
+//     * 微信支付异步通知地址
+//     */
+//    private String notifyUrl;
+//
+//    /**
+//     * 微信模版id
+//     */
+//    private Map<String, String> templateId;
 
 
 }
