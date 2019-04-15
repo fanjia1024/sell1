@@ -39,19 +39,20 @@ public class WechatController {
 
     }
     @GetMapping("/userInfo")
-    public String userInfo(@RequestParam("code") String code,
-                           @RequestParam("state") String returnUrl) {
+    public String userInfo(@RequestParam("code") String code) {
         WxMpOAuth2AccessToken wxMpOAuth2AccessToken = new WxMpOAuth2AccessToken();
         try {
+            log.info(wxMpService.getWxMpConfigStorage().getAppId());
+            log.info(wxMpService.getWxMpConfigStorage().getSecret());
             wxMpOAuth2AccessToken = wxMpService.oauth2getAccessToken(code);
         } catch (WxErrorException e) {
             log.error("【微信网页授权】{}", e);
             throw new SellException(ResultEnum.WECHAT_MP_ERROR.getCode(), e.getError().getErrorMsg());
         }
-        log.info("【微信授权的返回网页】 returnUrl={}",returnUrl);
+        log.info("【微信授权的返回网页】 returnUrl={}",code);
         String openId = wxMpOAuth2AccessToken.getOpenId();
 
-        return "redirect:" + returnUrl + "?openid=oTgZpwezf08ihIHR9Ni3t7dwTTQo" ;
+        return openId ;
     }
 
     @GetMapping("/qrAuthorize")
@@ -63,19 +64,19 @@ public class WechatController {
     }
 
     @GetMapping("/qrUserInfo")
-    public String qrUserInfo(@RequestParam("code") String code,
-                             @RequestParam("state") String returnUrl) {
+    public String qrUserInfo(@RequestParam("code") String code
+                             ) {
         WxMpOAuth2AccessToken wxMpOAuth2AccessToken = new WxMpOAuth2AccessToken();
         try {
-            wxMpOAuth2AccessToken = wxOpenService.oauth2getAccessToken(code);
+            wxMpOAuth2AccessToken = wxMpService.oauth2getAccessToken(code);
         } catch (WxErrorException e) {
             log.error("【微信网页授权】{}", e);
             throw new SellException(ResultEnum.WECHAT_MP_ERROR.getCode(), e.getError().getErrorMsg());
         }
         log.info("wxMpOAuth2AccessToken={}", wxMpOAuth2AccessToken);
         String openId = wxMpOAuth2AccessToken.getOpenId();
-
-        return "redirect:" + returnUrl + "?openid=" + openId;
+        log.info(openId+"当前的用户id");
+        return openId;
     }
 
 }

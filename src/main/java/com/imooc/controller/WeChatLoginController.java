@@ -3,6 +3,7 @@ package com.imooc.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.imooc.config.WechatAccountConfig;
 import lombok.extern.slf4j.Slf4j;
+import me.chanjar.weixin.mp.api.WxMpService;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
@@ -24,12 +25,13 @@ import java.net.URI;
 @RequestMapping("/wechat")
 @Slf4j
 public class WeChatLoginController {
+    @Autowired
+    private WxMpService wxMpService;
 
 
-
-    private String appid="wxce796590a9f0863a";
-
-    private String appsecret="e6322939783531c9ba49388a1c418a6c";
+//    private String appid="wxce796590a9f0863a";
+//
+//    private String appsecret="e6322939783531c9ba49388a1c418a6c";
 
     private String openid;
     private String session_key;
@@ -40,13 +42,13 @@ public class WeChatLoginController {
         CloseableHttpClient httpclient = HttpClients.createDefault();
         String resultString = "";
         CloseableHttpResponse response = null;
-        String url="https://api.weixin.qq.com/sns/jscode2session?appid="+appid+"&secret="+appsecret+"&js_code="+code+"&grant_type=authorization_code";
-        String url1="https://api.weixin.qq.com/sns/jscode2session?appid="+appid+"&secret="+appsecret+"&js_code="+code+"&grant_type=authorization_code";
+        String url="https://api.weixin.qq.com/sns/jscode2session?appid="+wxMpService.getWxMpConfigStorage().getAppId()+"&secret="+wxMpService.getWxMpConfigStorage().getSecret()+"&js_code="+code+"&grant_type=authorization_code";
+//        String url1="https://api.weixin.qq.com/sns/jscode2session?appid="+appid+"&secret="+appsecret+"&js_code="+code+"&grant_type=authorization_code";
         try {
             // 创建uri
             URIBuilder builder = new URIBuilder(url);
             URI uri = builder.build();
-            log.info(appid+":"+appsecret+":"+code);
+            log.info(wxMpService.getWxMpConfigStorage().getAppId()+":"+wxMpService.getWxMpConfigStorage().getSecret()+":"+code);
 
             // 创建http GET请求
             HttpGet httpGet = new HttpGet(uri);
